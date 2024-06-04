@@ -1,0 +1,33 @@
+{
+    "tasks": {
+        "dev": "deno run --watch main.ts"
+    },
+    "fmt": {
+        "indentWidth": 4,
+        "lineWidth": 125,
+        "semiColons": true,
+        "singleQuote": true,
+        "useTabs": false
+    },
+    "imports": { 
+      "@std/assert": "jsr:@std/assert@^0.226.0"
+    },
+    "name": "@nnou/option",
+    "version": "1.0.0",
+    "description": "A simple option type for typescript",
+    "exports": {
+        ".": "./mod.ts",
+        "./option": "./option.ts",
+        "./assert": "./assert.ts"
+    },
+    "publish": {
+        "include": [
+            "LICENSE",
+            "README.md",
+            "**/*.ts"
+        ],
+        "exclude": [
+            "**/*.test.ts"
+        ]
+    }
+}
