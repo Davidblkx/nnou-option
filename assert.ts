@@ -1,3 +1,25 @@
+/**
+ * @module assert
+ *
+ * This module provides functions to assert the type of `Option` instances.
+ *
+ * @example Using the `assert` module to assert the type of `Option` instances.
+ *
+ * ```ts
+ * import { assertSome, assertNone, assertSomeValue } from '@nnou/option/assert';
+ *
+ * const result = { hasValue: true, value: 42 };
+ *
+ * assertSome(result); // No error
+ * console.log(result.value); // 42
+ *
+ * assertNone(result); // Error: Expected no value to be present
+ *
+ * assertSomeValue(result, 42); // No error
+ * assertSomeValue(result, 43); // Error: Expected value to be 43, but got 42
+ * ```
+ */
+
 import type { None, Option, Some } from './option.ts';
 
 /**

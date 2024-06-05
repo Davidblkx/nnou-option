@@ -1,4 +1,27 @@
 /**
+ * @module core
+ *
+ * Contains the core types and functions of the `nnou/option` library.
+ *
+ * @example Using the `core` module to create and use `Option` instances.
+ *
+ * ```ts
+ * import { maybe, none, some } from '@nnou/option/core';
+ *
+ * const result = maybe(42);
+ *
+ * if (result.hasValue) {
+ *    console.log(result.value); // 42
+ * } else {
+ *   console.log('No value');
+ * }
+ *
+ * const result = none(); // No value
+ * const result = some(42); // 42
+ * ```
+ */
+
+/**
  * Represents a value that is present.
  */
 export type Some<T> = {
