@@ -83,5 +83,32 @@ export function assertNone<T>(option: Option<T>): asserts option is None {
  */
 export function assertSomeValue<T>(option: Option<T>, value: NonNullable<T>): void {
     assertSome(option);
-    option.value === value;
+    if (option.value !== value) {
+        throw new Error(`Expected value to be ${value}, but got ${option.value}`);
+    }
+}
+
+/**
+ * Check if the given value is an `Option` instance.
+ *
+ * @example Checking if a value is an `Option` instance.
+ *
+ * ```ts
+ * import { isOption } from '@nnou/option';
+ *
+ * const result: unknown = maybe(42);
+ *
+ * if (isOption(result)) {
+ *    console.log(result.value); // 42
+ * }
+ * ```
+ *
+ * @param value - The value to check.
+ * @returns - `true` if the value is an `Option` instance, `false` otherwise.
+ */
+export function isOption<T = unknown>(value: unknown): value is Option<T> {
+    return typeof value === 'object' &&
+        value !== null &&
+        'hasValue' in value &&
+        typeof value.hasValue === 'boolean';
 }

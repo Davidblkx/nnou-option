@@ -23,3 +23,5 @@
 
 export * from './assert.ts';
 export * from './option.ts';
+export * from './unwrap.ts';
+export * from './map.ts';

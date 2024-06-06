@@ -53,6 +53,8 @@ export type None = {
  */
 export type Option<T> = Some<NonNullable<T>> | None;
 
+export type NotOption<T> = T extends Option<unknown> ? never : T;
+
 /**
  * Creates a new `Some` instance.
  *
