@@ -81,7 +81,7 @@ export function assertNone<T>(option: Option<T>): asserts option is None {
  * @param option The `Option` instance to assert.
  * @param value The value to compare the `Some` value to.
  */
-export function assertSomeValue<T>(option: Option<T>, value: NonNullable<T>): void {
+export function assertSomeValue<T>(option: Option<T>, value: NonNullable<T>): asserts option is Some<T> {
     assertSome(option);
     if (option.value !== value) {
         throw new Error(`Expected value to be ${value}, but got ${option.value}`);
