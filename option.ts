@@ -54,7 +54,7 @@ export type None = {
 export type Option<T> = Some<NonNullable<T>> | None;
 
 /** Alias for Promise<Option<T>> */
-export type AsyncOption<T> = Promise<Option<T>>;
+export type OptionAsync<T> = Promise<Option<T>>;
 
 /**
  * Creates a new `Some` instance.

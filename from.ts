@@ -1,4 +1,4 @@
-import { type AsyncOption, maybe, none, type Option } from './option.ts';
+import { maybe, none, type Option, type OptionAsync } from './option.ts';
 
 /**
  * Resolve a promise and return a new `Option` instance.
@@ -23,7 +23,7 @@ import { type AsyncOption, maybe, none, type Option } from './option.ts';
 export async function fromPromise<T>(
     promise: Promise<T>,
     catchError: boolean = true,
-): AsyncOption<T> {
+): OptionAsync<T> {
     try {
         const value = await promise;
         return maybe(value);
@@ -84,7 +84,7 @@ export function fromResult<T>(
 export async function fromAsyncResult<T>(
     result: Promise<{ ok: false } | { ok: true; value: T }>,
     catchError: boolean = true,
-): AsyncOption<T> {
+): OptionAsync<T> {
     try {
         const value = await result;
         return fromResult(value);
